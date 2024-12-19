@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiteTube</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">LiteTube</div>
+        <div class="header-controls">
+            <button id="mode-toggle">Light/Dark Mode</button>
+            <input type="text" id="search-bar" placeholder="Search for videos...">
+            <button id="search-button">Search</button>
+        </div>
+    </header>
+    <main>
+        <section id="video-section">
+            <iframe id="video-player" frameborder="0" allowfullscreen></iframe>
+        </section>
+        <section id="results-section"></section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
