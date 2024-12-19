@@ -90,7 +90,7 @@ main {
 
 #video-section {
     position: fixed;
-    top: 50%; /* Adjusted to be below the header */
+    top: 20%; /* Adjusted to be below the header */
     left: 40%;
     transform: translateX(-50%);
     width: 900px; /* Increased width for better appearance */
