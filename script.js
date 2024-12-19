@@ -4,12 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchBar = document.getElementById('search-bar');
     const resultsSection = document.getElementById('results-section');
     const videoPlayer = document.getElementById('video-player');
+    const shareButton = document.getElementById('share-button');
+    const shareModal = document.getElementById('share-modal');
+    const shareLinkInput = document.getElementById('share-link');
+    const closeButton = document.querySelector('.close-button');
     const errorMessage = document.createElement('p');
     errorMessage.style.display = 'none';
     errorMessage.style.color = 'red';
     errorMessage.innerText = 'This video is unavailable or cannot be embedded.';
 
     const API_KEY = 'AIzaSyBGjU4fnXO_CkgiAWZ8CDk0b3_f3s_R6QU'; // Replace with your actual API key
+    let currentVideoId = '';
 
     // Light/Dark Mode Toggle
     modeToggle.addEventListener('click', () => {
@@ -53,11 +58,33 @@ document.addEventListener('DOMContentLoaded', () => {
                             videoPlayer.style.display = 'none';
                             errorMessage.style.display = 'block';
                         };
+
+                        // Store the current video ID for sharing
+                        currentVideoId = videoId;
                     });
                     resultsSection.appendChild(videoElement);
                 });
             })
             .catch(error => console.error('Error fetching YouTube API:', error));
+    });
+
+    // Share Button
+    shareButton.addEventListener('click', () => {
+        const shareLink = `https://ishikdeveloper.github.io/litetube/shared?vid=${currentVideoId}`;
+        shareLinkInput.value = shareLink;
+        shareModal.style.display = 'block';
+    });
+
+    // Close the modal
+    closeButton.addEventListener('click', () => {
+        shareModal.style.display = 'none';
+    });
+
+    // Close the modal if clicking outside of the modal content
+    window.addEventListener('click', (event) => {
+        if (event.target === shareModal) {
+            shareModal.style.display = 'none';
+        }
     });
 
     // Append the error message to the results section
