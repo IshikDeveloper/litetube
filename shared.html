@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shared Video</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Shared Video</h1>
+        <button id="mode-toggle">Toggle Light/Dark Mode</button>
+    </header>
+    <main>
+        <div id="video-container">
+            <iframe id="video-player" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modeToggle = document.getElementById('mode-toggle');
+            const videoPlayer = document.getElementById('video-player');
+
+            // Light/Dark Mode Toggle
+            modeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+            });
+
+            // Get the video ID from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const videoId = urlParams.get('vid');
+
+            if (videoId) {
+                videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            } else {
+                alert('No video ID provided.');
+            }
+        });
+    </script>
+</body>
+</html>
