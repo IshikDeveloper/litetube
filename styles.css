@@ -167,3 +167,55 @@ main {
     background-color: #333;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
+/* Share Modal */
+#share-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 100;
+}
+
+#share-modal.active {
+    display: block;
+}
+
+#share-modal h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+#share-modal p {
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+#share-link {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+#copy-button {
+    padding: 10px 20px;
+    background-color: #ff7f50;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#copy-button:hover {
+    background-color: #ff6347;
+}
